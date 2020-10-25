@@ -53,5 +53,8 @@ export default Vue.extend({
   data: () => ({
     //
   }),
+  metaInfo: {
+    title: "CTFNote | Home",
+  },
 });
 </script>
