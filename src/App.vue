@@ -1,60 +1,78 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      :mini-variant="mini"
+      clipped
+      permanent
+      app
+    >
+      <v-list-item class="px-2">
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+        </v-list-item-avatar>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+        <v-list-item-title>John Leider</v-list-item-title>
+      </v-list-item>
 
-      <v-spacer></v-spacer>
+      <v-divider></v-divider>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-list dense>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app clipped-left dark>
+      <v-app-bar-nav-icon @click="mini = !mini"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+      <v-spacer />
+      <v-autocomplete
+        filled
+        dense
+        outlined
+        label="Select a CTF"
+        :items="ctfs"
+        hide-details
+        style="max-width: 300px"
+      />
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
+<!-- <v-btn>
+    <router-link to="/">Home</router-link>
+  </v-btn>
+  <v-btn>
+    <router-link to="/about">About</router-link>
+  </v-btn> -->
+
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default Vue.extend({
   name: "App",
 
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
-    //
+    drawer: true,
+    items: [
+      { title: "Home", icon: "mdi-home-city", to: "/" },
+      { title: "About", icon: "mdi-account", to: "/about" },
+    ],
+    mini: true,
+    ctfs: ["test 1", "UiACTF", "HTBCTF", "Archived"],
   }),
-  metaInfo: {
-    title: "CTFNote | Home",
-  },
 });
 </script>
