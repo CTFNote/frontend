@@ -1,7 +1,11 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+
+import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
+import Settings from "@/views/Settings.vue";
+import Challenges from "@/views/Challenges.vue";
+import Challenge from "@/views/Challenge.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +19,21 @@ const routes: Array<RouteConfig> = [
     path: "/about",
     name: "About",
     component: About,
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: Settings,
+  },
+  {
+    path: "/challenges",
+    name: "Challenges",
+    component: Challenges,
+  },
+  {
+    path: "/challenges/:challengeID",
+    name: "Challenges",
+    component: Challenge,
   },
 ];
 

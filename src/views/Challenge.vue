@@ -1,15 +1,15 @@
 <template>
   <v-container>
-    <h1>About</h1>
+    <h1>Challenge</h1>
   </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  name: "About",
+  name: "Challenge",
   metaInfo: {
-    title: "About | CTFNote",
+    title: "Challenge title | CTFNote",
   },
 });
 </script>

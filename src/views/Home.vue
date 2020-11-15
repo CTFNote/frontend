@@ -12,7 +12,7 @@ export default Vue.extend({
     HelloWorld,
   },
   metaInfo: {
-    title: "CTFNote | Home",
+    title: "Home | CTFNote",
   },
 });
 </script>
