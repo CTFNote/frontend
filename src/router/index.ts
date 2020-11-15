@@ -34,7 +34,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/challenges/:challengeID",
-    name: "Challenges",
+    name: "Challenge",
     component: Challenge,
   },
   {
