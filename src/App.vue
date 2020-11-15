@@ -17,7 +17,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="'/team/notes'">
+        <v-list-item :to="'/team/notepad'">
           <v-list-item-icon>
             <v-icon> mdi-book-open-variant </v-icon>
           </v-list-item-icon>
@@ -27,6 +27,15 @@
         </v-list-item>
 
         <v-divider></v-divider>
+
+        <v-list-item :to="'/ctf'">
+          <v-list-item-icon>
+            <v-icon>mdi-font-awesome</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>CTF</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
         <v-list-item :to="'/challenges'">
           <v-list-item-icon>
