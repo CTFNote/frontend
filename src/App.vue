@@ -91,17 +91,7 @@ export default Vue.extend({
 
   data: () => ({
     drawer: true,
-    items: [
-      [
-        { title: "Home", icon: "mdi-home", to: "/" },
-        { title: "About", icon: "mdi-account", to: "/about" },
-        { title: "Challenges", icon: "mdi-view-dashboard", to: "/challenges" },
-        { title: "Settings", icon: "mdi-cog", to: "/ctf/settings" },
-      ],
-      [],
-    ],
     mini: true,
-    ctfs: ["test 1", "UiACTF", "HTBCTF", "Archived"],
   }),
 });
 </script>
