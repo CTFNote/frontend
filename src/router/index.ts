@@ -15,27 +15,27 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home,
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: About,
   },
   {
-    path: "/settings",
-    name: "Settings",
+    path: "/user/settings",
+    name: "userSettings",
     component: Settings,
   },
   {
     path: "/challenges",
-    name: "Challenges",
+    name: "challenges",
     component: Challenges,
   },
   {
     path: "/challenges/:challengeID",
-    name: "Challenge",
+    name: "challenge",
     component: Challenge,
   },
   {
@@ -45,12 +45,12 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/team/notepad",
-    name: "TeamNotepad",
+    name: "teamNotepad",
     component: TeamNotepad,
   },
   {
     path: "/team",
-    name: "Team",
+    name: "team",
     component: Team
   },
 ];

@@ -8,7 +8,7 @@
       app
     >
       <v-list dense>
-        <v-list-item :to="'/'">
+        <v-list-item :to="{ name: 'home' }">
           <v-list-item-icon>
             <v-icon>mdi-home</v-icon>
           </v-list-item-icon>
@@ -17,7 +17,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="'/team/notepad'">
+        <v-list-item :to="{ name: 'teamNotepad' }">
           <v-list-item-icon>
             <v-icon> mdi-book-open-variant </v-icon>
           </v-list-item-icon>
@@ -26,7 +26,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="'/team'">
+        <v-list-item :to="{ name: 'team' }">
           <v-list-item-icon>
             <v-icon> mdi-account-group </v-icon>
           </v-list-item-icon>
@@ -37,7 +37,7 @@
 
         <v-divider></v-divider>
 
-        <v-list-item :to="'/ctf'">
+        <v-list-item :to="{ name: 'CTF' }">
           <v-list-item-icon>
             <v-icon>mdi-font-awesome</v-icon>
           </v-list-item-icon>
@@ -46,7 +46,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="'/challenges'">
+        <v-list-item :to="{ name: 'challenges' }">
           <v-list-item-icon>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-icon>
@@ -57,7 +57,7 @@
 
         <v-divider></v-divider>
 
-        <v-list-item :to="'/about'">
+        <v-list-item :to="{ name: 'about' }">
           <v-list-item-icon>
             <v-icon>mdi-help-circle</v-icon>
           </v-list-item-icon>
@@ -66,7 +66,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="'/settings'">
+        <v-list-item :to="{ name: 'userSettings' }">
           <v-list-item-icon>
             <v-icon>mdi-cog</v-icon>
           </v-list-item-icon>
