@@ -18,7 +18,8 @@
     "vue": "^2.6.12",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.4.7",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.2.11",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
