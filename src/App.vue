@@ -93,5 +93,9 @@ export default Vue.extend({
     drawer: true,
     mini: true,
   }),
+
+  metaInfo: {
+    titleTemplate: "%s | CTFNote",
+  },
 });
 </script>

@@ -9,7 +9,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "CTF",
   metaInfo: {
-    title: "CTF | CTFNote",
+    title: "CTF",
   },
 });
 </script>

@@ -9,7 +9,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "Settings",
   metaInfo: {
-    title: "Settings | CTFNote",
+    title: "Settings",
   },
 });
 </script>

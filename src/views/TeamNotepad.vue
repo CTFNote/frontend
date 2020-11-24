@@ -9,7 +9,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "TeamNotepad",
   metaInfo: {
-    title: "Team Notepad | CTFNote",
+    title: "Team Notepad",
   },
 });
 </script>
