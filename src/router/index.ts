@@ -8,6 +8,7 @@ import Challenges from "@/views/Challenges.vue";
 import Challenge from "@/views/Challenge.vue";
 import CTF from "@/views/CTF.vue";
 import TeamNotepad from "@/views/TeamNotepad.vue";
+import Team from "@/views/Team.vue";
 
 Vue.use(VueRouter);
 
@@ -46,6 +47,11 @@ const routes: Array<RouteConfig> = [
     path: "/team/notepad",
     name: "TeamNotepad",
     component: TeamNotepad,
+  },
+  {
+    path: "/team",
+    name: "Team",
+    component: Team
   },
 ];
 
