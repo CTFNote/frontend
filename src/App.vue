@@ -17,7 +17,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{ name: 'teamNotepad' }">
+        <v-list-item v-if="isLoggedIn()" :to="{ name: 'teamNotepad' }">
           <v-list-item-icon>
             <v-icon> mdi-book-open-variant </v-icon>
           </v-list-item-icon>
@@ -26,7 +26,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{ name: 'team' }">
+        <v-list-item v-if="isLoggedIn()" :to="{ name: 'team' }">
           <v-list-item-icon>
             <v-icon> mdi-account-group </v-icon>
           </v-list-item-icon>
@@ -35,9 +35,9 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-divider></v-divider>
+        <v-divider v-if="isLoggedIn()"></v-divider>
 
-        <v-list-item :to="{ name: 'CTF' }">
+        <v-list-item v-if="isLoggedIn()" :to="{ name: 'CTF' }">
           <v-list-item-icon>
             <v-icon>mdi-font-awesome</v-icon>
           </v-list-item-icon>
@@ -46,7 +46,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{ name: 'challenges' }">
+        <v-list-item v-if="isLoggedIn()" :to="{ name: 'challenges' }">
           <v-list-item-icon>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-icon>
@@ -83,6 +83,11 @@
       <v-toolbar-title>Application</v-toolbar-title>
       <v-spacer />
       <v-btn outlined text>Select CTF</v-btn>
+      <v-spacer />
+      <v-btn v-if="isLoggedIn()" outlined text @click.prevent="logOut()"
+        >Log out</v-btn
+      >
+
       <v-avatar><v-icon>mdi-account-circle</v-icon></v-avatar>
     </v-app-bar>
 
@@ -95,6 +100,8 @@
 <script lang="ts">
 import Vue from "vue";
 
+import { userStore } from "@/plugins/vuex";
+
 export default Vue.extend({
   name: "App",
 
@@ -102,6 +109,16 @@ export default Vue.extend({
     drawer: true,
     mini: true,
   }),
+
+  methods: {
+    isLoggedIn() {
+      return userStore.getters.isLoggedIn;
+    },
+    logOut() {
+      userStore.dispatch("logout");
+      return this.$router.go(0);
+    },
+  },
 
   metaInfo: {
     titleTemplate: "%s | CTFNote",
