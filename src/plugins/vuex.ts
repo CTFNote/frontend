@@ -38,8 +38,6 @@ const userStore = new Vuex.Store({
           withCredentials: true,
         })
           .then((res) => {
-            console.log(res);
-
             const jwtToken = res.data.jwtToken;
             const user = res.data.user;
 
