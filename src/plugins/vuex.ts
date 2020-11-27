@@ -108,7 +108,7 @@ const userStore = new Vuex.Store({
                 }
               }
             }
-            reject(err)
+            reject(err);
           });
       });
     },
