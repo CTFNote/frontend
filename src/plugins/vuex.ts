@@ -84,6 +84,17 @@ const userStore = new Vuex.Store({
         });
       });
     },
+    async logout({ commit }) {
+      localStorage.removeItem("jwtToken");
+      delete axios.defaults.headers.common["Authorization"];
+      await axios({
+        url: "http://localhost:8082/api/v1/auth/logout", // TODO: Change this to be dynamically configured somehow
+        method: "POST",
+        withCredentials: true,
+      })
+        .catch((err) => console.warn(`Error while logging out: ${err}`))
+        .finally(() => commit("logout"));
+    },
   },
   getters: {
     isLoggedIn: (state) => !!state.jwtToken,
