@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>Home</h1>
-    <LoginForm v-if="!isLoggedIn()" />
+    <AuthForm v-if="!isLoggedIn()" />
     <h2 v-else>Authorized</h2>
   </v-container>
 </template>
@@ -10,7 +10,7 @@
 import Vue from "vue";
 
 import { userStore } from "@/plugins/vuex";
-import LoginForm from "@/components/Login.vue";
+import AuthForm from "@/components/Auth.vue";
 
 export default Vue.extend({
   name: "Home",
@@ -20,7 +20,7 @@ export default Vue.extend({
   },
 
   components: {
-    LoginForm,
+    AuthForm,
   },
 
   methods: {

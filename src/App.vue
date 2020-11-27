@@ -115,8 +115,9 @@ export default Vue.extend({
       return userStore.getters.isLoggedIn;
     },
     logOut() {
-      userStore.dispatch("logout");
-      return this.$router.go(0);
+      userStore.dispatch("logout").then(() => {
+        return this.$router.go(0);
+      });
     },
   },
 
