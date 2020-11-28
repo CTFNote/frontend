@@ -88,7 +88,23 @@
         >Log out</v-btn
       >
 
-      <v-avatar><v-icon>mdi-account-circle</v-icon></v-avatar>
+      <ProfilePicture v-if="isLoggedIn()" />
+      <v-btn v-else outlined text @click.stop="loginDialog = true"
+        >Log in</v-btn
+      >
+      <v-dialog v-model="loginDialog">
+        <v-card>
+          <v-card-title class="headline"> Log in or register </v-card-title>
+
+          <AuthForm />
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn text @click="loginDialog = false"> Cancel </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-app-bar>
 
     <v-main>
@@ -101,13 +117,20 @@
 import Vue from "vue";
 
 import { userStore } from "@/plugins/vuex";
+import ProfilePicture from "@/components/ProfilePicture.vue";
+import AuthForm from "@/components/Auth.vue";
 
 export default Vue.extend({
   name: "App",
+  components: {
+    ProfilePicture,
+    AuthForm,
+  },
 
   data: () => ({
     drawer: true,
     mini: true,
+    loginDialog: false,
   }),
 
   methods: {
