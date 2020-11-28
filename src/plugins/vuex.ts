@@ -32,7 +32,7 @@ const userStore = new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("authenticating");
         axios({
-          url: "http://localhost:8082/api/v1/auth/login", // TODO: Change this to be dynamically configured somehow
+          url: "https://localhost:8443/api/v1/auth/login", // TODO: Change this to be dynamically configured somehow
           data,
           method: "POST",
           withCredentials: true,
@@ -74,7 +74,7 @@ const userStore = new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit("auth_request");
         axios({
-          url: "http://localhost:8082/api/v1/auth/register", // TODO: Change this to be dynamically configured somehow
+          url: "https://localhost:8443/api/v1/auth/register", // TODO: Change this to be dynamically configured somehow
           data,
           method: "POST",
           withCredentials: true,
@@ -116,7 +116,7 @@ const userStore = new Vuex.Store({
       localStorage.removeItem("jwtToken");
       delete axios.defaults.headers.common["Authorization"];
       await axios({
-        url: "http://localhost:8082/api/v1/auth/logout", // TODO: Change this to be dynamically configured somehow
+        url: "https://localhost:8443/api/v1/auth/logout", // TODO: Change this to be dynamically configured somehow
         method: "POST",
         withCredentials: true,
       })
