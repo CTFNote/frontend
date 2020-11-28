@@ -13,7 +13,7 @@
         type="password"
         label="Confirm password"
       ></v-text-field>
-      <v-btn type="submit" @click.prevent="submit">{{
+      <v-btn type="submit" :loading="loading" @click.prevent="submit">{{
         !registration ? "Log in" : "Register"
       }}</v-btn>
       <v-btn @click="toggleRegister">{{
@@ -38,10 +38,12 @@ export default Vue.extend({
     passwordConfirm: "",
     registration: false,
     error: "",
+    loading: false,
   }),
 
   methods: {
     submit() {
+      this.loading = true;
       if (!this.registration) {
         console.log("login");
         userStore
@@ -50,9 +52,11 @@ export default Vue.extend({
             password: this.password,
           })
           .then((_) => {
+            this.loading = false;
             this.$router.go(0);
           })
           .catch((err) => {
+            this.loading = false;
             if (err.error) {
               this.error = err.error;
             } else {
@@ -72,9 +76,11 @@ export default Vue.extend({
             password: this.password,
           })
           .then((_) => {
+            this.loading = false;
             this.$router.go(0);
           })
           .catch((err) => {
+            this.loading = false;
             if (err.error) {
               this.error = err.error;
             } else {
