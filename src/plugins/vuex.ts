@@ -4,6 +4,11 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
+const api = axios.create({
+  baseURL: "https://localhost:8443/api/v1", // TODO: Change this to be dynamically configured somehow
+  withCredentials: true
+});
+
 const userStore = new Vuex.Store({
   state: {
     status: "",
@@ -31,12 +36,8 @@ const userStore = new Vuex.Store({
     login({ commit }, data) {
       return new Promise((resolve, reject) => {
         commit("authenticating");
-        axios({
-          url: "https://localhost:8443/api/v1/auth/login", // TODO: Change this to be dynamically configured somehow
-          data,
-          method: "POST",
-          withCredentials: true,
-        })
+        api
+          .post("/auth/login", data)
           .then((res) => {
             const jwtToken = res.data.jwtToken;
             const user = res.data.user;
@@ -73,12 +74,8 @@ const userStore = new Vuex.Store({
     register({ commit }, data) {
       return new Promise((resolve, reject) => {
         commit("auth_request");
-        axios({
-          url: "https://localhost:8443/api/v1/auth/register", // TODO: Change this to be dynamically configured somehow
-          data,
-          method: "POST",
-          withCredentials: true,
-        })
+        api
+          .post("/auth/register", data)
           .then((res) => {
             const jwtToken = res.data.jwtToken;
             const user = res.data.user;
@@ -115,11 +112,8 @@ const userStore = new Vuex.Store({
     async logout({ commit }) {
       localStorage.removeItem("jwtToken");
       delete axios.defaults.headers.common["Authorization"];
-      await axios({
-        url: "https://localhost:8443/api/v1/auth/logout", // TODO: Change this to be dynamically configured somehow
-        method: "POST",
-        withCredentials: true,
-      })
+      await api
+        .post("/auth/logout")
         .catch((err) => console.warn(`Error while logging out: ${err}`))
         .finally(() => commit("logout"));
     },
