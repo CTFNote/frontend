@@ -32,6 +32,9 @@ ctfnote/frontend - replace with the repo URL
   <a href="https://github.com/ctfnote/frontend/pulls">
       <img src="https://img.shields.io/github/issues-pr-raw/ctfnote/frontend.svg">
     </a>
+  <a href="https://discord.gg/feHantD3Hx">
+    <img src="https://img.shields.io/discord/771369946416152576?label=Join%20the%20discord%20server&logo=discord">
+  </a>
   </div>
 </p>
 
